@@ -43,7 +43,7 @@ export default {
         await this.$auth.setUserToken(token);
         await this.$auth.setUser(user);
         localStorage.setItem("inforUser", JSON.stringify(user));
-        this.$router.push("/admin/");
+        this.$router.push("/");
       } catch (error) {}
     },
   },

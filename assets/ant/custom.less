@@ -1,0 +1,188 @@
+.ant-menu-light {
+    &.ant-menu-inline-collapsed {
+        .ant-menu-item, .ant-menu-submenu {
+            @apply flex justify-center;
+        }
+        .ant-menu-submenu {
+            .ant-menu-submenu-title {
+                @apply flex items-center justify-center !important;
+            }
+        }
+    }
+    .ant-menu-item {
+        @apply w-4/5 !important;
+        &.ant-menu-item-selected {
+            @apply bg-primary-90 text-white w-4/5 rounded-[4px] !important;
+        }
+    }
+    .ant-menu-submenu {
+        @apply w-4/5 !important;
+        .ant-menu-submenu-title {
+            @apply flex items-center gap-3 !important;
+        }
+        .ant-menu-sub{
+            .ant-menu-item{
+                @apply lg:ml-9 !important;
+            }
+        }
+        
+    }
+    &.ant-menu-submenu {
+        &.ant-menu-submenu-popup {
+            .ant-menu-item {
+                &.ant-menu-item-selected {
+                    @apply w-full !important;
+                }
+            }
+        }
+    }
+} 
+
+.ghost {
+    .ant-menu-item {
+        @apply w-11/12 !important;
+        &.ant-menu-item-selected {
+            @apply bg-primary-10 text-primary-90 w-11/12 rounded-[4px] !important;
+        }
+    }
+}
+
+.ant-drawer-body {
+    .ant-menu-item {
+        @apply w-full !important;
+        &.ant-menu-item-selected {
+            @apply w-full !important;
+        }
+    }
+    .ant-menu-submenu {
+        @apply w-full !important;
+    }
+}
+
+.ant-table-thead {
+    th {
+        @apply bg-primary-90 text-white !important;
+    }
+}
+
+.ant-btn {
+    @apply rounded-lg p-5 flex items-center !important;
+    &.ant-btn-primary {
+        @apply bg-primary-90 text-white font-medium;
+        &.ant-btn-background-ghost {
+            @apply text-primary-90;
+        }
+    }
+    &.ant-btn-lg {
+        @apply py-6 flex items-center justify-center !important;
+    }
+}
+
+.ant-input {
+    @apply border-gray-20 p-5 rounded-lg  !important;
+    &.ant-input-lg {
+        @apply p-6 !important;
+    }
+    
+}
+
+.ant-input-affix-wrapper {
+    .ant-input-prefix {
+        @apply text-lg !important;
+    }
+    &.ant-input-affix-wrapper-lg {
+        .ant-input-prefix {
+            @apply text-xl;
+        }
+    }
+    .ant-input {
+        @apply pl-8 !important;
+        &.ant-input-lg { 
+            @apply pl-9 !important;
+        }
+    }
+}
+
+.ant-select-selection {
+    @apply border-gray-20 rounded-lg h-41 !important;
+    .ant-select-selection__rendered {
+        @apply ml-5 leading-10 !important;
+    }
+}
+
+.ant-form-item-control {
+    &.has-error {
+        .ant-select-selection {
+            @apply border-red-100 !important;
+        }
+    }
+}
+
+.ant-row {
+    &.ant-form-item-with-help {
+        .ant-input {
+            @apply border-red-100 text-red-100 !important;
+        }
+    }
+}
+
+.ant-checkbox-input {
+    @apply border-gray-20 rounded-lg !important;
+}
+
+
+.ant-modal-header {
+    @apply py-4 !important;
+}
+
+.ant-modal-close-x {
+    @apply flex items-center justify-center !important;
+    .ant-modal-close-icon{
+        @apply p-2 bg-gray-20 rounded-lg;
+    }
+}
+
+.ant-dropdown {
+    @apply min-w-48 !important;
+}
+
+.ant-message-notice {
+    .ant-message-notice-content {
+        .ant-message-custom-content {
+            @apply text-base !important;
+            &.ant-message-custom-content {
+                @apply flex items-center !important;
+            }
+        }
+        
+    }
+}
+
+.ant-divider-horizontal {
+    height: 2px !important;
+}
+
+.ant-modal-footer {
+    div {
+        @apply flex justify-end;
+    }
+}
+
+.ant-drawer-close {
+    @apply flex items-center justify-center;
+}
+
+.ant-switch {
+    @apply border border-gray-10 !important;
+    &.ant-switch-checked {
+        @apply bg-primary-90 !important;
+    }
+}
+
+.ant-table-wrapper {
+    @apply border border-gray-10 border-b-0 rounded-t-lg !important;
+}
+
+.ant-upload {
+    @apply flex items-center justify-center !important;
+}

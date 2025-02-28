@@ -16,7 +16,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["ant-design-vue/dist/antd.css"],
+  css: [
+    "@/assets/ant/main.less",
+    "@/assets/scss/main.scss",
+    "@/assets/css/tailwind.css",
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ["@/plugins/antd-ui", "@/assets/css/tailwind.css"],

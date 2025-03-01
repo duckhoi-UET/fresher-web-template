@@ -164,23 +164,6 @@ export default {
     handleSubmit() {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
-          if (!this.form.accept) {
-            this.$message.error("Vui lòng đồng ý với điều khoản");
-            return;
-          }
-          if (this.form.password !== this.form.rePassword) {
-            this.$message.error("Mật khẩu không chính xác, vui lòng thử lại");
-            return;
-          }
-          try {
-            const result = await this.register({ ...this.form });
-            if (result) {
-              this.$message.success("Đăng ký tài khoản thành công!");
-              this.$router.push("/login");
-            }
-          } catch (error) {
-            console.log(error.response);
-          }
         }
       });
     },

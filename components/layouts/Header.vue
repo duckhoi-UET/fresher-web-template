@@ -47,31 +47,23 @@
                 </div>
               </a-menu-item>
               <a-menu-divider />
-              <a-menu-item key="1">
+              <a-menu-item key="2">
                 <div>
-                  <h1>Thông báo 1</h1>
-                  <span>Content thông báo 1</span>
+                  <h1>Thông báo 2</h1>
+                  <span>Content thông báo 2</span>
                 </div>
               </a-menu-item>
               <a-menu-divider />
               <a-menu-item key="3">
                 <div>
-                  <h1>Thông báo 1</h1>
-                  <span>Content thông báo 1</span>
+                  <h1>Thông báo 3</h1>
+                  <span>Content thông báo 3</span>
                 </div>
               </a-menu-item>
             </a-menu>
           </a-dropdown>
         </div>
-        <div class="mr-14 hidden md:block">
-          <a-input placeholder="Search..." autocomplete="off">
-            <a-icon
-              slot="prefix"
-              type="search"
-              style="color: rgba(0, 0, 0, 0.25)"
-            />
-          </a-input>
-        </div>
+
         <a-dropdown :trigger="['click']" placement="bottomRight">
           <a
             class="ant-dropdown-link flex items-center"
@@ -132,7 +124,13 @@ export default {
 
   computed: {
     authUser() {
-      return this.$auth?.user;
+      return this.$auth?.user?.displayName
+        ? this.$auth?.user
+        : {
+            displayName: "Nguyễn Đức Khôi",
+            photoURL:
+              "https://lh3.googleusercontent.com/a/ACg8ocKc5Bs9X_6yjCgRkMQQXj6-UnIe5_eRtpJBfCb3zGtA6A=s96-c",
+          };
     },
     getName() {
       const arrayName = this.authUser?.displayName?.split(" ") || [];

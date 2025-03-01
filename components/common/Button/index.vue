@@ -6,9 +6,6 @@
     :ghost="ghost"
     @click="handleClick"
   >
-    <span v-if="icon" class="material-symbols-outlined mr-1">
-      {{ icon }}
-    </span>
     {{ text }}
   </a-button>
 </template>

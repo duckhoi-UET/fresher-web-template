@@ -1,7 +1,7 @@
 <template>
   <a-drawer placement="left" :visible="visibleSidebar" @close="onClose">
     <template #title>
-      <div class="w-24"><img src="~/assets/images/logo/logo.png" alt="" /></div>
+      <div class="w-24"><img src="~/assets/images/logo/logo.jpg" alt="" /></div>
     </template>
     <SidebarItems @handleClickMenu="onClose" />
   </a-drawer>

@@ -10,17 +10,17 @@
       zIndex: 100,
     }"
     class="shadow-md border-r-[1px] border-gray-10"
-    v-model="collapsed"
+    :value="collapsed"
     collapsible
     @collapse="collapse"
   >
     <div class="flex flex-col justify-between h-full">
       <div>
         <div class="flex justify-center my-5">
-          <img class="w-2/3" src="~/assets/images/logo/logo.png" alt="" />
+          <img class="w-2/3" src="~/assets/images/logo/logo.jpg" alt="" />
         </div>
         <a-divider />
-        <SidebarItems />
+        <SidebarItems :collapsed="collapsed" />
       </div>
       <div v-if="!collapsed" class="text-center">
         <h1 v-html="copyRight"></h1>

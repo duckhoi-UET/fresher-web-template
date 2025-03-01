@@ -1,8 +1,9 @@
 <template>
-  <Table :columns="columns" :data="data" />
+  <Table :columns="columns" :data="users" />
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Table from "@/components/common/Table";
 export default {
   name: "TableDashboard",
@@ -13,52 +14,34 @@ export default {
     return {
       columns: [
         {
-          title: "Name",
-          dataIndex: "name",
-          sorter: (a, b) => a.name.length - b.name.length,
+          title: "Email",
+          dataIndex: "email",
+          sorter: (a, b) => a.email.length - b.email.length,
           sortDirections: ["descend", "ascend"],
         },
         {
-          title: "Age",
-          dataIndex: "age",
-          sorter: (a, b) => a.age - b.age,
+          title: "Time login",
+          dataIndex: "time_login",
+          sorter: (a, b) => a.time_login - b.time_login,
           sortDirections: ["descend", "ascend"],
         },
         {
-          title: "Address",
-          dataIndex: "address",
-          sorter: (a, b) => a.address.length - b.address.length,
+          title: "Ip Address",
+          dataIndex: "ip_address",
+          sorter: (a, b) => a.ip_address.length - b.ip_address.length,
           sortDirections: ["descend", "ascend"],
         },
-      ],
-
-      data: [
         {
-          key: "1",
-          name: "John Brown",
-          age: 32,
-          address: "New York No. 1 Lake Park",
-        },
-        {
-          key: "2",
-          name: "Jim Green",
-          age: 42,
-          address: "London No. 1 Lake Park",
-        },
-        {
-          key: "3",
-          name: "Joe Black",
-          age: 32,
-          address: "Sidney No. 1 Lake Park",
-        },
-        {
-          key: "4",
-          name: "Jim Red",
-          age: 32,
-          address: "London No. 2 Lake Park",
+          title: "Device info",
+          dataIndex: "device_info",
+          sorter: (a, b) => a.device_info.length - b.device_info.length,
+          sortDirections: ["descend", "ascend"],
         },
       ],
     };
+  },
+  computed: {
+    ...mapState(["users"]),
   },
 };
 </script>

@@ -2,7 +2,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
   head: {
-    title: "ecommerce-admin",
+    title: "admin",
     htmlAttrs: {
       lang: "en",
     },
@@ -85,6 +85,9 @@ export default {
         },
       },
     },
+  },
+  router: {
+    // middleware: ["auth"],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

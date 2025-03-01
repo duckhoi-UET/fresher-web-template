@@ -13,7 +13,6 @@
         placeholder="Email"
         autocomplete="off"
         size="large"
-        @input="resetValidateField('ruleForm', 'email')"
         @keyup.native.enter="handleSubmit"
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0, 0, 0, 0.25)" />
@@ -27,7 +26,6 @@
         placeholder="Password"
         autocomplete="off"
         size="large"
-        @input="resetValidateField('ruleForm', 'password')"
         @keyup.native.enter="handleSubmit"
       >
         <a-icon slot="prefix" type="lock" style="color: rgba(0, 0, 0, 0.25)" />
@@ -38,9 +36,6 @@
       <div class="flex flex-col">
         <div class="flex justify-between">
           <a-checkbox v-model="form.remember"> Remember me </a-checkbox>
-          <a class="login-form-forgot" @click="handleForgotPassword">
-            Forgot password
-          </a>
         </div>
         <Button
           class="my-4"
@@ -103,23 +98,7 @@ export default {
     handleSubmit() {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
-          this.setLoading(true);
-          await this.$auth
-            .loginWith("local", {
-              data: {
-                ...this.form,
-              },
-            })
-            .then(() => {
-              this.$router.push("/admin");
-              this.$message.success("Sign in successfully!");
-            })
-            .catch((error) => {
-              this.$message.error(error.response.data.message);
-            })
-            .finally(() => {
-              this.setLoading(false);
-            });
+          this.$router.push("/");
         } else {
           return false;
         }
@@ -127,9 +106,6 @@ export default {
     },
     goToRegister() {
       this.$router.push("/register");
-    },
-    handleForgotPassword() {
-      this.$router.push("/forgot-password");
     },
   },
 };

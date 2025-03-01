@@ -3,7 +3,6 @@
     ref="modalLogout"
     title="Sign out"
     okText="Sign out"
-    :confirmLoading="isLoadingBtn"
     @submit="handleLogout"
   >
     <template #content>
@@ -26,11 +25,9 @@ export default {
       this.$refs.modalLogout.open();
     },
     async handleLogout() {
-      this.setLoadingBtn(true);
       await this.logout();
       await this.$auth.logout();
       this.$refs.modalLogout.close();
-      this.setLoadingBtn(false);
       this.$router.push("/login");
     },
   },

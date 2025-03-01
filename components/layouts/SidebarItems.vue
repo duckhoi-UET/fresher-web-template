@@ -1,70 +1,63 @@
 <template>
   <a-menu
-    :key="currentActive"
     theme="light"
     mode="inline"
-    :open-keys="openKeys"
-    :default-selected-keys="currentActive"
+    :default-selected-keys="['/']"
+    :selected-keys="[current]"
     class="flex justify-center flex-col items-center text-black border-none"
     @click="handleClickMenu"
-    @openChange="handleOpenChange"
   >
-    <template v-for="item in menusSideBar">
-      <a-menu-item
-        v-if="!item?.child?.length"
-        :key="item.router"
-        class="flex items-center gap-2"
-      >
-        <a-icon :type="item.icon" />
-        <span v-if="!collapsed" class="font-medium text-base truncate">{{
-          item.label
-        }}</span>
-      </a-menu-item>
-
-      <a-sub-menu v-if="item?.child?.length" :key="item.router">
-        <template slot="title">
-          <a-icon :type="item.icon" />
-          <span v-if="!collapsed" class="font-medium text-base truncate">{{
-            item.label
-          }}</span>
-        </template>
-        <template v-for="sidebarItemChild in item.child">
-          <a-menu-item
-            v-if="sidebarItemChild.router"
-            :key="sidebarItemChild.router"
-          >
-            <span class="truncate">{{ sidebarItemChild.label }}</span>
-          </a-menu-item>
-        </template>
-      </a-sub-menu>
-    </template>
+    <a-menu-item
+      v-for="(item, index) in menusSideBar"
+      :key="index"
+      class="flex items-center gap-2"
+      @click="$router.push(item.route)"
+    >
+      <a-icon :type="item.icon" />
+      <span v-if="!collapsed" class="font-medium text-base truncate">{{
+        item.label
+      }}</span>
+    </a-menu-item>
   </a-menu>
 </template>
 
 <script>
 export default {
   name: "SidebarItems",
+  props: {
+    collapsed: {
+      type: Boolean,
+      default: false,
+    },
+  },
 
   data() {
     return {
-      openKeys: [],
+      menusSideBar: [
+        {
+          icon: "home",
+          label: "Dashboard",
+          route: "/",
+          key: "/",
+        },
+
+        {
+          icon: "user",
+          label: "History login list",
+          route: "/users",
+          key: "/users",
+        },
+      ],
+      current: 0,
     };
-  },
-  computed: {
-    currentActive() {
-      return [this.$route.path];
-    },
   },
 
   mounted() {},
 
   methods: {
-    handleClickMenu({ key }) {
-      this.$router.push(key);
+    handleClickMenu(e) {
+      this.current = e.key;
       this.$emit("handleClickMenu");
-    },
-    handleOpenChange(keys) {
-      this.openKeys = keys?.length ? [keys?.pop()] : [];
     },
   },
 };

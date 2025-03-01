@@ -42,7 +42,7 @@ export default {
         const user = result.user;
         await this.$auth.setUserToken(token);
         await this.$auth.setUser(user);
-        localStorage.setItem("inforUser", JSON.stringify(user));
+        sessionStorage.setItem("inforUser", JSON.stringify(user));
         this.$router.push("/");
       } catch (error) {}
     },

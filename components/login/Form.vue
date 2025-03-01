@@ -98,6 +98,12 @@ export default {
     handleSubmit() {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
+          await this.$auth.setUserToken("aaaaaaaaaaaaaa");
+          await this.$auth.setUser({
+            displayName: "Nguyễn Đức Khôi",
+            photoURL:
+              "https://lh3.googleusercontent.com/a/ACg8ocKc5Bs9X_6yjCgRkMQQXj6-UnIe5_eRtpJBfCb3zGtA6A=s96-c",
+          });
           this.$router.push("/");
         } else {
           return false;

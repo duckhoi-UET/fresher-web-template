@@ -59,10 +59,7 @@ export default {
           global: true,
         },
         autoLogout: false,
-        user: {
-          property: "user",
-          autoFetch: true,
-        },
+        user: {},
         endpoints: {
           login: {
             url: `/login`,
@@ -70,10 +67,6 @@ export default {
           },
           logout: {
             url: `/logout`,
-            method: "GET",
-          },
-          user: {
-            url: `/me`,
             method: "GET",
           },
         },

@@ -40,9 +40,9 @@ export default {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
+        sessionStorage.setItem("inforUser", JSON.stringify(user));
         await this.$auth.setUserToken(token);
         await this.$auth.setUser(user);
-        sessionStorage.setItem("inforUser", JSON.stringify(user));
         this.$router.push("/");
       } catch (error) {}
     },

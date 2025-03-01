@@ -54,6 +54,11 @@ export default {
       visibleSidebar: false,
     };
   },
+  created() {
+    if (sessionStorage.getItem("inforUser") && this.$auth.loggedIn) {
+      this.$auth.setUser(JSON.parse(sessionStorage.getItem("inforUser")));
+    }
+  },
 
   methods: {
     handleOpenSidebar() {

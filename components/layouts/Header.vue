@@ -70,7 +70,7 @@
             @click="(e) => e.preventDefault()"
           >
             <span class="text-black text-base font-medium mr-2 hidden md:block">
-              {{ authUser?.displayName }}
+              {{ authUser?.displayName || authUser?.email }}
             </span>
             <a-avatar
               v-if="authUser?.photoURL"
@@ -124,16 +124,18 @@ export default {
 
   computed: {
     authUser() {
-      return this.$auth?.user?.displayName
-        ? this.$auth?.user
-        : {
-            displayName: "Nguyễn Đức Khôi",
-            photoURL:
-              "https://lh3.googleusercontent.com/a/ACg8ocKc5Bs9X_6yjCgRkMQQXj6-UnIe5_eRtpJBfCb3zGtA6A=s96-c",
-          };
+      return (
+        this.$auth?.user || {
+          displayName: "Nguyễn Đức Khôi",
+          photoURL:
+            "https://lh3.googleusercontent.com/a/ACg8ocKc5Bs9X_6yjCgRkMQQXj6-UnIe5_eRtpJBfCb3zGtA6A=s96-c",
+        }
+      );
     },
     getName() {
-      const arrayName = this.authUser?.displayName?.split(" ") || [];
+      const arrayName = this.authUser?.displayName
+        ? this.authUser?.displayName?.split(" ")
+        : this.authUser?.email?.split("@");
       return (
         arrayName[0]?.charAt(0) + arrayName[arrayName.length - 1]?.charAt(0)
       );

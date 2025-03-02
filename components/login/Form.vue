@@ -113,7 +113,10 @@ export default {
               this.$auth.setUserToken(idToken);
               this.$auth.setStrategy("local");
               this.$auth.setUser(response.data);
-              sessionStorage.setItem("inforUser", JSON.stringify(this.user));
+              sessionStorage.setItem(
+                "inforUser",
+                JSON.stringify(response.data)
+              );
               this.$router.push("/");
               this.$message.success("Đăng nhập thành công");
             }

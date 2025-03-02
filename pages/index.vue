@@ -20,7 +20,10 @@
         <h1 class="font-bold text-2xl my-2">500</h1>
       </div>
     </div>
-    <HeaderPage text="List of users not active in the last 7 days" />
+    <HeaderPage
+      text="List of users not active in the last 7 days"
+      customClass="mb-0"
+    />
     <TableDashboard />
     <div
       class="mt-3 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between gap-3"

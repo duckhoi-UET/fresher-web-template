@@ -1,5 +1,5 @@
 <template>
-  <h1 class="mb-8 text-2xl font-semibold">{{ text }}</h1>
+  <h1 class="text-2xl font-semibold" :class="customClass">{{ text }}</h1>
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
     text: {
       type: String,
       default: "",
+    },
+    customClass: {
+      type: String,
+      default: "mb-8",
     },
   },
 };

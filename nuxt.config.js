@@ -14,6 +14,9 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+  generate: {
+    fallback: true,
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -51,11 +54,21 @@ export default {
       auth: true, // Just as example. Can be any other service.
     },
   },
+  render: {
+    http2: {
+      push: true,
+    },
+  },
   auth: {
     strategies: {
       local: {
         autoLogout: false,
         user: { property: false },
+        endpoints: {
+          login: false,
+          logout: false,
+          user: false,
+        },
         redirect: {
           login: "/login",
           logout: "/",

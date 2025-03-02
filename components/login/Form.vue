@@ -104,7 +104,7 @@ export default {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           const response = await this.$axios.post(
-            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDmFptkYuHYh2iVUA5FdOVXfw7kFlEfvWU`,
+            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAm07YCWGs4mAVMPZ58XcdU8GIrujQ8mEs`,
             { ...this.form, returnSecureToken: true }
           );
           if (response) {

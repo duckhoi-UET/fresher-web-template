@@ -136,9 +136,9 @@ export default {
       const arrayName = this.authUser?.displayName
         ? this.authUser?.displayName?.split(" ")
         : this.authUser?.email?.split("@");
-      return (
-        arrayName[0]?.charAt(0) + arrayName[arrayName.length - 1]?.charAt(0)
-      );
+      return arrayName?.length > 1
+        ? arrayName[0]?.charAt(0) + arrayName[arrayName.length - 1]?.charAt(0)
+        : arrayName;
     },
   },
 

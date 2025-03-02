@@ -103,10 +103,19 @@ export default {
     handleSubmit() {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
-          await this.$auth.setUserToken("aaaaaaaaaaaaaa");
-          await this.$auth.setUser(this.user);
-          sessionStorage.setItem("inforUser", JSON.stringify(this.user));
-          this.$router.push("/");
+          const response = await this.$axios.post(
+            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDmFptkYuHYh2iVUA5FdOVXfw7kFlEfvWU`,
+            { ...this.form, returnSecureToken: true }
+          );
+          if (response) {
+            const { idToken } = response.data;
+            this.$auth.setUserToken(idToken);
+            this.$auth.setStrategy("local");
+            this.$auth.setUser(response.data);
+            sessionStorage.setItem("inforUser", JSON.stringify(this.user));
+            this.$router.push("/");
+            this.$message.success("Đăng nhập thành công");
+          }
         } else {
           return false;
         }

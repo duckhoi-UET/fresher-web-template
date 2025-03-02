@@ -22,7 +22,6 @@
             type="password"
             autocomplete="off"
             size="large"
-            @input="resetValidateField('ruleForm', 'password')"
           >
             <a-icon
               slot="prefix"
@@ -39,7 +38,6 @@
             placeholder="Password"
             autocomplete="off"
             size="large"
-            @input="resetValidateField('ruleForm', 'newPassword')"
           >
             <a-icon
               slot="prefix"
@@ -55,7 +53,6 @@
             placeholder="Password"
             autocomplete="off"
             size="large"
-            @input="resetValidateField('ruleForm', 'reNewPassword')"
           >
             <a-icon
               slot="prefix"
@@ -72,7 +69,6 @@
 <script>
 import Modal from "@/components/common/Modal";
 import { cloneDeep } from "lodash";
-import { mapActions } from "vuex";
 
 const defaultForm = {
   password: "",
@@ -132,7 +128,6 @@ export default {
     };
   },
   methods: {
-    ...mapActions("authen", ["changePassword"]),
     open() {
       this.$refs.changePassword.open();
     },

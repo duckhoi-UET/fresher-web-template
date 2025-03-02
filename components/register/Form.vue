@@ -13,7 +13,6 @@
         placeholder="Full Name"
         autocomplete="off"
         size="large"
-        @input="resetValidateField('ruleForm', 'fullName')"
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0, 0, 0, 0.25)" />
       </a-input>
@@ -24,7 +23,6 @@
         placeholder="Email"
         autocomplete="off"
         size="large"
-        @input="resetValidateField('ruleForm', 'email')"
       >
         <a-icon slot="prefix" type="mail" style="color: rgba(0, 0, 0, 0.25)" />
       </a-input>
@@ -35,7 +33,6 @@
         placeholder="Username"
         autocomplete="off"
         size="large"
-        @input="resetValidateField('ruleForm', 'username')"
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0, 0, 0, 0.25)" />
       </a-input>
@@ -48,7 +45,6 @@
         placeholder="Password"
         autocomplete="off"
         size="large"
-        @input="resetValidateField('ruleForm', 'password')"
       >
         <a-icon slot="prefix" type="lock" style="color: rgba(0, 0, 0, 0.25)" />
       </a-input-password>
@@ -60,7 +56,6 @@
         placeholder="Re Password"
         autocomplete="off"
         size="large"
-        @input="resetValidateField('ruleForm', 'rePassword')"
       >
         <a-icon slot="prefix" type="lock" style="color: rgba(0, 0, 0, 0.25)" />
       </a-input-password>
@@ -90,7 +85,6 @@
 
 <script>
 import Button from "@/components/common/Button";
-import { mapActions } from "vuex";
 export default {
   name: "LoginForm",
   components: {
@@ -160,7 +154,6 @@ export default {
   },
 
   methods: {
-    ...mapActions("authen", ["register"]),
     handleSubmit() {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {

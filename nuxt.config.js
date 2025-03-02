@@ -54,22 +54,8 @@ export default {
   auth: {
     strategies: {
       local: {
-        token: {
-          property: "token",
-          global: true,
-        },
         autoLogout: false,
-        user: {},
-        endpoints: {
-          login: {
-            url: `/login`,
-            method: "POST",
-          },
-          logout: {
-            url: `/logout`,
-            method: "GET",
-          },
-        },
+        user: { property: false },
         redirect: {
           login: "/login",
           logout: "/",

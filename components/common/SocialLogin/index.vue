@@ -44,7 +44,10 @@ export default {
         await this.$auth.setUserToken(token);
         await this.$auth.setUser(user);
         this.$router.push("/");
-      } catch (error) {}
+      } catch (error) {
+        console.error("Error during Google login:", error);
+        alert("Failed to login with Google. Please try again.");
+      }
     },
   },
 };

@@ -1,3 +1,5 @@
+import { add } from "lodash";
+
 function getRandomIP() {
   return `${Math.floor(Math.random() * 256)}.${Math.floor(
     Math.random() * 256
@@ -47,6 +49,7 @@ function generateUsers(count) {
       ip_address: getRandomIP(),
       device_info: getRandomDevice(),
       status: 0,
+      id: i + 1,
     });
   }
 
@@ -62,10 +65,28 @@ export const mutations = {
   SET_LOADING(state, payload) {
     state.isLoading = payload;
   },
+  SET_USERS(state, payload) {
+    state.users = payload;
+  },
 };
 
 export const actions = {
   setLoading({ commit }, payload) {
     commit("SET_LOADING", payload);
+  },
+  createUser({ commit, state }, payload) {
+    commit("SET_USERS", [payload, ...state.users]);
+  },
+  deleteUser({ commit, state }, payload) {
+    commit(
+      "SET_USERS",
+      state.users.filter((user) => user.id !== payload)
+    );
+  },
+  updateUser({ commit, state }, payload) {
+    commit(
+      "SET_USERS",
+      state.users.map((user) => (user.id === payload.id ? payload?.data : user))
+    );
   },
 };

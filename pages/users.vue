@@ -1,12 +1,13 @@
 <template>
   <div class="bg-white p-6 rounded-lg">
     <HeaderPage text="Users list" />
-    <UserFilter class="mb-8" />
-    <TableUser :data="users" />
+    <UserFilter class="mb-8" @create="handleCreateUser" />
+    <TableUser :data="users" @edit="handleEditUser" />
     <div v-if="users?.length" class="mt-3 flex items-center justify-between">
       <PaginationSize :pagination="pagination" />
       <Pagination :total="pagination.total" />
     </div>
+    <UserDialog ref="userDialog" />
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import Pagination from "@/components/common/Pagination";
 import PaginationSize from "@/components/common/Pagination/Size.vue";
 import UserFilter from "@/components/users/Filter.vue";
 import HeaderPage from "@/components/common/HeaderPage";
+import UserDialog from "@/components/users/Dialog.vue";
 
 export default {
   name: "Users",
@@ -26,6 +28,7 @@ export default {
     PaginationSize,
     UserFilter,
     HeaderPage,
+    UserDialog,
   },
   data() {
     return {
@@ -40,6 +43,13 @@ export default {
     ...mapState(["users"]),
   },
   created() {},
-  methods: {},
+  methods: {
+    handleEditUser(user) {
+      this.$refs.userDialog.open(user);
+    },
+    handleCreateUser() {
+      this.$refs.userDialog.open();
+    },
+  },
 };
 </script>

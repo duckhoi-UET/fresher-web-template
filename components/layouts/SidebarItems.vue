@@ -2,7 +2,7 @@
   <a-menu
     theme="light"
     mode="inline"
-    :default-selected-keys="['/']"
+    :default-selected-keys="[current]"
     :selected-keys="[current]"
     class="flex justify-center flex-col items-center text-black border-none"
     @click="handleClickMenu"
@@ -52,11 +52,14 @@ export default {
     };
   },
 
-  mounted() {},
+  created() {
+    this.current = +sessionStorage.getItem("current") || 0;
+  },
 
   methods: {
     handleClickMenu(e) {
       this.current = e.key;
+      sessionStorage.setItem("current", this.current);
       this.$emit("handleClickMenu");
     },
   },

@@ -12,7 +12,7 @@
     </a-input>
     <div class="flex justify-end gap-4">
       <Button ghost text="Search" />
-      <Button text="Create new" />
+      <Button text="Create new" @click="$emit('create')" />
     </div>
   </div>
 </template>

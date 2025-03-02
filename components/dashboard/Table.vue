@@ -16,6 +16,7 @@ export default {
         {
           title: "Email",
           dataIndex: "email",
+          fixed: "left",
           sorter: (a, b) => a.email.length - b.email.length,
           sortDirections: ["descend", "ascend"],
         },

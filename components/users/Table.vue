@@ -1,5 +1,10 @@
 <template>
-  <a-table :columns="columns" :data-source="data" :pagination="false">
+  <a-table
+    :columns="columns"
+    :data-source="data"
+    :pagination="false"
+    :scroll="{ x: 800 }"
+  >
     <template slot="status" slot-scope="{ status }">
       <div class="text-base">
         <a-switch :checked="status == 1 ? true : false" />
@@ -55,6 +60,7 @@ export default {
         {
           title: "Email",
           dataIndex: "email",
+          fixed: "left",
           sorter: (a, b) => a.email.length - b.email.length,
           sortDirections: ["descend", "ascend"],
         },

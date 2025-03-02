@@ -1,7 +1,7 @@
 <template>
   <div>
     <a-layout-header
-      :style="{ position: 'fixed', zIndex: 1, right: 0, left: 0 }"
+      :style="{ position: 'fixed', zIndex: 100, right: 0, left: 0 }"
       class="shadow-md flex items-center justify-between px-4"
       style="background: #fff"
     >

@@ -5,6 +5,7 @@
     @change="onChange"
     :pagination="false"
     :bordered="bordered"
+    :scroll="{ x: 800 }"
   >
     <slot name="content" />
   </a-table>

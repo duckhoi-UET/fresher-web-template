@@ -7,7 +7,7 @@
       position: 'fixed',
       left: 0,
       background: '#fff',
-      zIndex: 100,
+      zIndex: 101,
     }"
     class="shadow-md border-r-[1px] border-gray-10"
     :value="collapsed"
